@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Scheduler</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="w-screen h-screen bg-slate-800 overflow-x-hidden">
+    <div class="container min-h-[650px] relative w-[] mx-auto p-5px flex rounded-[10px]">
+        <!-- left -->
+        <div class="left w-1/2 p-5">
+            <div id="calender" class="calender relative w-full h-full flex flex-col flex-wrap justify-between  text- rounded-[5px] bg-white">
+                <div id='month' class="month flex text- justify-between items-center w-full h-24 px-14 text-lg font-semibold capitalize">
+                    <i id="prev" class="icon fa fa-angle-left prev cursor-pointer"></i>
+                    <span id="date" class="date text-center">
+                        
+                    </span>
+                    <i id="next" class="icon fa fa-angle-right next cursor-pointer"></i>
+                </div>
+                <div id='weekdays' class="weekdays flex space-x-2 w-full px-7 text-base font-semibold capitalize justify-between  items-center">
+                    <span class="h-full flex justify-center items-center">Sun</span>
+                    <span class="h-full flex justify-center items-center">Mon</span>
+                    <span class="h-full flex justify-center items-center">Tue</span>
+                    <span class="h-full flex justify-center items-center">Wed</span>
+                    <span class="h-full flex justify-center items-center">Thur</span>
+                    <span class="h-full flex justify-center items-center">Fri</span>
+                    <span class="h-full flex justify-center items-center">Sat</span>
+                </div>
+                <div id='days' class="days flex flex-wrap w-full justify-between px-6 text-base mb-6 font-semibold">
+                    <!-- <div class="day prev-date h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">30</div>
+                    <div class="day prev-date h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">31</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">1</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">2</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">3</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">4</div>
+                    <div class="day event h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">5</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">6</div>
+                    <div class="day event h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">7</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">8</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">9</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">10</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">11</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">12</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">13</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">14</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">15</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">16</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">17</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">18</div>
+                    <div class="day event h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">19</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">20</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">21</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">22</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">23</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">24</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">25</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">26</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%] today  active" >27</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">28</div>
+                    <div class="day h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">29</div>
+                    <div class="day next-date h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">1</div>
+                    <div class="day next-date h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">2</div>
+                    <div class="day next-date h-[50px] flex justify-center items-center cursor-pointer border-[1px] border-green-300 w-[13%]">3</div>   -->
+                    <div class="day next-date h-[50px] flex justify-center items-center cursor-pointer   w-[13%]"></div>                
+                </div>
+                <div id="goto-today" class="goto-today w-full h-[50px] items-center flex justify-between space-x-1 px-5 mb-5">
+                    <div id="goto" class="goto flex items-center rounded-[5px] overflow-hidden border-[1px] border-gray-300">
+                        <input type="text" placeholder="dd/mm/yyyy" id="date-input" class="date-input text-green-800 outline-none rounded-base py-2 px-5 w-full h-6 rounded-md">
+                        <button id="goto-btn" class="goto-btn py-2 px-3 rounded-md bg-transparent border-[1px] text-green-800 hover:text-white hover:bg-orange-600">Go</button>
+                    </div>                    
+                    <button id="today-btn" class='today-btn  py-2 px-3 rounded-md bg-transparent border-[1px] text-green-800 hover:text-white hover:bg-green-600'>today</button>
+                </div>
+            </div>
+        </div>
+        <!-- right -->
+        <div class="right relative w-[40%] text-white min-h-[100%] px-0 py-8">
+            <div class="today-date flex w-full h-16 flex-wrap space-x-8 justify-between items-center capitalize mt-12 mb-6 px-10 py-0 pl-[70px]">
+                <div class="event-day text-2xl font-semibold">Mon</div>
+                <div class="event-date text-base text-gray-50 font-normal">4, September 2023</div>                
+            </div>
+            <!-- -->
+            <div id="events" class="events w-full h-full max-w-[] overflow-y-auto overflow-x-hidden flex flex-col p-1 relative">
+                <!-- <div class="event relative w-[95%] h-[70px] flex justify-center flex-col space-x-[5px] color-white px-[20px] pl-[50px] cursor-pointer bg-gradient-to-r from-yellow-400 to-transparent">
+                    ADD EVENTS HERE USING JAVASCRIPT 
+                    <div class="title flex items-center pointer-events-none">
+                        <i class="fas fa-circle"></i>
+                        <h3 class=" event-title text-base ml-[20px]">Event 1</h3>
+                    </div>
+                    <div class="event-time text-sm font-normal pointer-events-none ml-[5px]">
+                        7:00AM - 4:00PM
+                    </div>
+                    Events will be added through Javascript 
+                </div> -->
+            </div>
+            <div class="add-event-wrapper">
+                <div class="add-event-header">
+                    <div class="title">Add Event</div>
+                    <i class="fas fa-times close"></i>
+                </div>
+                <div class="add-event-body w-full h-full flex flex-col space-y-[5px] p-[20px]">
+                    <div class="add-event-input">
+                        <input type="text" placeholder="Event Name" class="event-name" />
+                    </div>
+                    <div class="add-event-input">
+                        <input
+                            type="text"
+                            placeholder="Event Time From"
+                            class="event-time-from"
+                        />
+                    </div>
+                    <div class="add-event-input">
+                        <input
+                            type="text"
+                            placeholder="Event Time To"
+                            class="event-time-to"
+                        />
+                    </div>
+                </div>
+                <div class="add-event-footer">
+                    <button class="add-event-btn">Add Event</button>
+                </div>
+            </div>
+            <button class="add-event z-index absolute right-0 bottom-[150px] w-[40px] h-[40px] items-center justify-center text-base border-[2px] border-white rounded-[50%] cursor-pointer bg-transparent opacity-50 hover:opacity-100">
+                <i class="fas fa-plus pointer-events-none"></i>
+            </button>
+        </div>
+     </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+This code is for a event scheduler built using javascript , HTML and CSS/TailwindCss
+*It has a calendar component that handles navigation and selection of days.
